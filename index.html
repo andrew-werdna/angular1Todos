@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="./node_modules/angular/angular.min.js"></script>
+        <script src="./js/app.js"></script>
+
+    </head>
+    <body ng-app="Todos">
+
+        <div ng-controller="TodoController">
+            <div style="height:3em;"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <form name="currentTodo" ng-submit="addTodo()">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <input ng-model="theTodo" type="text" class="form-control" name="currentTodo" placeholder="Get Busy" value="">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="submit" name="submit" class="btn btn-success" value="Add Todo">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 1em;"></div>
+                <div class="row" ng-repeat="item in todos">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <!-- add complete todo here -->
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <i>{{ item }}</i>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <!-- add delete todo here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>

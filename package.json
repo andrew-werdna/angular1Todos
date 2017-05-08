@@ -1,0 +1,22 @@
+{
+  "name": "todoangular",
+  "version": "1.0.0",
+  "description": "the dreaded to do app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "./node_modules/lite-server/bin/lite-server"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "andrew b",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
