@@ -33,22 +33,24 @@
                         </div>
                     </div>
                 </div>
-                <div style="height: 1em;"></div>
-                <div class="row" ng-repeat="item in todos">
+                <div style="height: 3em;"></div>
+                <div class="row" ng-repeat="item in todos track by $index">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
                                 <div class="row">
                                     <div class="col-lg-2">
-                                        <!-- add complete todo here -->
+                                        <input ng-model="item.completed" type="checkbox" value="" ng-checked="{{ item.completed }}">
                                     </div>
                                     <div class="col-lg-8">
-                                        <i>{{ item }}</i>
+                                        <del ng-if="item.completed"><i>{{ item.name }}</i></del>
+                                        <i ng-if="!item.completed">{{ item.name }}</i>
                                     </div>
                                     <div class="col-lg-2">
-                                        <!-- add delete todo here -->
+                                        <button ng-click="delete(item.id)" class="btn btn-danger">X</button>
                                     </div>
                                 </div>
+                                <hr />
                             </div>
                         </div>
                     </div>
