@@ -5,10 +5,29 @@ app.controller('TodoController', ['$scope', 'LocalStorageProvider', function($sc
     $scope.todos = LocalStorageProvider.get();
 
     $scope.addTodo = function() {
-        $scope.todos.push($scope.theTodo);
+
+        var todo = {
+            name: $scope.theTodo,
+            completed: false,
+            id: $scope.todos.length + 1
+        };
+
+        $scope.todos.push(todo);
         LocalStorageProvider.set($scope.todos);
         $scope.theTodo = '';
-    };
+
+    }; // addTodo
+
+    $scope.delete = function(id) {
+
+        var index = $scope.todos.find(function(item) {
+            return item.id = id;
+        });
+
+        $scope.todos.splice(index, 1);
+        LocalStorageProvider.set($scope.todos);
+
+    }; // delete
 
 }]);
 
@@ -19,21 +38,12 @@ app.factory('LocalStorageProvider', function($rootScope) {
     return {
 
         get: function() {
-
-            var todos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-
-            todos = todos.map(function(value, index) {
-                value.id = index + 1;
-                return value;
-            });
-
-            return todos;
-
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
         }, // get
 
         set: function(value) {
             var todos = JSON.stringify(value);
-            localStorage.setItem(STORAGE_KEY, value);
+            localStorage.setItem(STORAGE_KEY, todos);
         } // set
 
     }; // return
